@@ -15,8 +15,8 @@ Display the result to the user and prompt him to play again.
 
 Algorithm
 *********
-Create a constant array of strings called choices that holds the values of rock, paper and scissors in global
-Declare a keepGoing variable that holds a boolean value.Initialize as true
+    Create a constant array of strings called choices that holds the values of rock, paper and scissors in global
+    Declare a keepGoing variable that holds a boolean value.Initialize as true
 
     The play function:                
         While this variable is true, do the following:
