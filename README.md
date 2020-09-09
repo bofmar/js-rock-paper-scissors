@@ -1,7 +1,7 @@
-JavaScript Rock Paper Scissors
-******************************
+JavaScript Rock Paper Scissors Legacy
+**************************************
 
-An Odin Project exercise.
+An Odin Project exercise. This is the initial version of the exercise, meant to be played in the page's console.
             
             
 SPECIFICATIONS
