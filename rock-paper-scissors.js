@@ -1,9 +1,9 @@
 const container = document.querySelector("#container");
 const choices = ["rock", "paper", "scissors"]
 
-//variables to hold player's and pc's choice
-let playerChoice;
-let pcChoice;
+let round;
+let playerScore;
+let pcScore;
 
 initializeTitleScreen(container);
 
@@ -77,22 +77,20 @@ function initializePlayArea(container, title, titleButton) {
     Play();
 }
 
+function deletePlayerArea(){
+    container.textContent = "";
+    container.classList.remove("game-container");
+}
+
 function Play() {
-    let round = 1;
-    let playerScore = 0;
-    let pcScore = 0;
+    round = 1;
+    playerScore = 0;
+    pcScore = 0;
 
     updateBoard(round, playerScore, pcScore);
 
-    while (round <= 5) {
-        humanPlay();
-        computerChoice = computerPlay();
-        let result = whoWins(playerChoice, pcChoice);
-        if (result === "victory") playerScore++;
-        else if (result === "loss") playerScore++;
-        round++;
-        updateBoard(round, playerScore, pcScore);
-    }
+    let buttons = document.querySelectorAll(".button");
+    buttons.forEach(button => button.addEventListener("click", playOutTurn));
 }
 
 function updateBoard(round, playerScore, pcScore) {
@@ -106,8 +104,31 @@ function humanPlay() {
     buttons.forEach(button => button.addEventListener("click", returnId));
 }
 
-function returnId(e) {
-    player = e.target.id;
+function playOutTurn(e) {
+    let playerChoice = e.target.id;
+    let computerChoice = computerPlay();
+    document.querySelector(".pc-area").textContent = computerChoice;
+    let result = whoWins(playerChoice, computerChoice);
+    if (result === "victory") playerScore++;
+    else if (result === "loss") pcScore++;
+    round++;
+    if(round <=5){
+        updateBoard(round,playerScore,pcScore);
+    }
+    else{
+        if (playerScore > pcScore){
+            alert(`You won the game with a score of ${playerScore} to ${pcScore}`);
+        }
+        else if(playerScore < pcScore){
+            alert(`You lost the game with a score of ${playerScore} to ${pcScore}`);
+        }
+        else{
+            alert(`The game finished in a tie with a score of ${playerScore} to ${pcScore}`);
+        }
+        deletePlayerArea();
+        initializeTitleScreen(container);
+    }
+    
 }
 
 function computerPlay() {
