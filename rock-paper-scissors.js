@@ -1,4 +1,5 @@
 const container = document.querySelector("#container");
+const choices = ["rock", "paper", "scissors"]
 
 initializeTitleScreen(container);
 
@@ -7,7 +8,7 @@ function initializeTitleScreen(container){
     let title = document.createElement("h1");
     title.classList.add("title");
     let titleButton = document.createElement("button");
-    titleButton.classList.add("title-button");
+    titleButton.classList.add("button");
     titleButton.setAttribute("type","button");
 
     container.appendChild(title);
@@ -16,10 +17,66 @@ function initializeTitleScreen(container){
     container.classList.add("title-container");
     title.textContent = "Rock Paper Scissors";
     titleButton.textContent = "Play";
+
+    titleButton.addEventListener("click", () =>{
+        initializePlayArea(container,title,titleButton);
+    });
 }
 
-function initializePlayArea(){
-    
+function Play(){
+    let round = 1;
+
+    while(round <=5){
+        round++;
+    }
+}
+
+function initializePlayArea(container, title, titleButton){
+    //remove title elements
+    container.removeChild(title);
+    container.removeChild(titleButton);
+    container.classList.remove("title-container");
+
+    //add the new elements
+    let playerArea = document.createElement("div");
+    playerArea.classList.add("player-area");
+
+    for(let i =0; i < 3; i++){
+        let newButton = document.createElement("button");
+        newButton.classList.add("button");
+        newButton.setAttribute("type", "button");
+        newButton.setAttribute("id", choices[i]);
+        newButton.textContent = choices[i];
+
+        playerArea.appendChild(newButton);
+    }
+
+    container.appendChild(playerArea);
+
+    let scoreContainer = document.createElement("div");
+    scoreContainer.classList.add("score-container");
+
+    let roundCounter = document.createElement("h1");
+    roundCounter.textContent = "Round: 1";
+    scoreContainer.appendChild(roundCounter);
+
+    let score = document.createElement("h1");
+    score.textContent = "Score";
+    scoreContainer.appendChild(score);
+
+    let scoreCounter = document.createElement("h1");
+    scoreCounter.textContent = "0 - 0";
+    scoreContainer.appendChild(scoreCounter);
+
+    container.appendChild(scoreContainer);
+
+    let pcArea = document.createElement("div");
+    pcArea.classList.add("pc-area");
+    pcArea.textContent = "";
+
+    container.appendChild(pcArea);
+
+    container.classList.add("game-container");
 }
 
 
@@ -27,7 +84,7 @@ function initializePlayArea(){
 
 
 // //Create a constant array of strings called choices that holds the values of rock, paper and scissors in global
-// const choices = ["rock", "paper", "scissors"]
+
 // //Declare a keepGoing variable that holds a boolean value.Initialize as true
 // let keepGoing = true;
 
