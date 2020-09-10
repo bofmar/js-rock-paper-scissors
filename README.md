@@ -23,4 +23,3 @@ STRETCH GOALS
 These where not requirements for the completion of the exercise.
     Add background music.
     Add button sound effects.
-    Add victory, loss and draw jingle.
