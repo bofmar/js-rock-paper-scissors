@@ -106,6 +106,7 @@ function humanPlay() {
 
 function playOutTurn(e) {
     let playerChoice = e.target.id;
+    playRPSSound(playerChoice);
     let computerChoice = computerPlay();
     document.querySelector(".pc-area").textContent = computerChoice;
     let result = whoWins(playerChoice, computerChoice);
@@ -152,5 +153,17 @@ function whoWins(player, computer) {
     else {
         alert(`You lost! ${computer} beats ${player}`);
         return "loss";
+    }
+}
+
+function playRPSSound(id){
+    if(id === "rock"){
+        document.querySelector("#rock-sound").play();
+    }
+    else if(id === "paper"){
+        document.querySelector("#paper-sound").play();
+    }
+    else{
+        document.querySelector("#scissors-sound").play();
     }
 }

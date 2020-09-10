@@ -53,3 +53,7 @@ body{
   .pc-area{
       font-size: 60px;
   }
+
+  .music{
+    position: absolute;
+  }

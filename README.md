@@ -4,8 +4,8 @@ JavaScript Rock Paper Scissors
 An Odin Project exercise. This version has a UI and can be played from the page itself.
             
             
-SPECIFICATIONS
-**************
+SPECIFICATIONS (AKA MVP)
+************************
     The game is between the user and the computer.
     Initial screen has the title of the game and a play button.
     The play button initializes the actual game.
@@ -17,3 +17,9 @@ SPECIFICATIONS
     Each round is a best out of 5.
     The score is displayed to the user on the page itself.
     After 5 rounds an overall winner is announced and the game goes back to the start screen.
+
+STRETCH GOALS
+**************
+These where not requirements for the completion of the exercise.
+    Add background music.
+    Add button sound effects.
