@@ -1,4 +1,26 @@
+const container = document.querySelector("#container");
 
+initializeTitleScreen(container);
+
+function initializeTitleScreen(container){
+    //create content for title screen
+    let title = document.createElement("h1");
+    title.classList.add("title");
+    let titleButton = document.createElement("button");
+    titleButton.classList.add("title-button");
+    titleButton.setAttribute("type","button");
+
+    container.appendChild(title);
+    container.appendChild(titleButton);
+
+    container.classList.add("title-container");
+    title.textContent = "Rock Paper Scissors";
+    titleButton.textContent = "Play";
+}
+
+function initializePlayArea(){
+    
+}
 
 
 
